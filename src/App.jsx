@@ -1,17 +1,13 @@
-import { useState } from 'react'
+import React from 'react';
+import NumberButton from "./component/NumberButton.jsx";
 import './App.css'
-import Calculator from './component/Calculator';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-        <div className="App">
-            <Calculator />
-        </div>
-    </>
-  )
+    return <div className="App">
+        <h1>Calculator9000</h1>
+        <NumberButton />
+    </div>
 }
 
 export default App
