@@ -1,17 +1,13 @@
 import React from "react";
 
-const EqualButton = () => {
-    function onClickEqual() {
-        console.log("=");
-    }
-
+const EqualButton = ({ handleEqualClick }) => {
     return (
         <div>
-            <button id="equal" onClick={onClickEqual}>
+            <button id="equal" onClick={handleEqualClick}>
                 =
             </button>
         </div>
     );
-}
+};
 
 export default EqualButton;

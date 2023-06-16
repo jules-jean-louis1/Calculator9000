@@ -1,18 +1,38 @@
-import React from "react";
-import BeautifulScreen from "./BeautifulScreen.jsx";
-import NumberButton from "./NumberButton.jsx";
-import OperatorButton from "./OperatorButton.jsx";
-import EqualButton from "./EqualButton.jsx";
+import React, { useState } from "react";
+import BeautifulScreen from "./BeautifulScreen";
+import NumberButton from "./NumberButton";
+import OperatorButton from "./OperatorButton";
+import EqualButton from "./EqualButton";
 
 const Calculator = () => {
+    const [expression, setExpression] = useState("");
+    const [result, setResult] = useState("");
+
+    const handleNumberClick = (number) => {
+        setExpression((prevExpression) => prevExpression + number);
+    };
+
+    const handleOperatorClick = (operator) => {
+        setExpression((prevExpression) => prevExpression + operator);
+    };
+
+    const handleEqualClick = () => {
+        try {
+            const parsedExpression = parseInt(expression, 10); // Conversion en base 10
+            const result = eval(parsedExpression);
+            setResult(result);
+        } catch (error) {
+            setResult("Erreur de calcul");
+        }
+    };
     return (
         <div>
-            <BeautifulScreen />
-            <NumberButton />
-            <OperatorButton />
-            <EqualButton />
+            <BeautifulScreen expression={expression} result={result} />
+            <NumberButton handleNumberClick={handleNumberClick} />
+            <OperatorButton handleOperatorClick={handleOperatorClick} />
+            <EqualButton handleEqualClick={handleEqualClick} />
         </div>
     );
-}
+};
 
 export default Calculator;

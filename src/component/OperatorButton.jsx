@@ -1,21 +1,21 @@
 import React from "react";
 
-const OperatorButton = () => {
+const OperatorButton = ({ handleOperatorClick }) => {
     const operators = ["+", "-", "*", "/"];
-
-    function onClickOperator(operator) {
-        console.log(operator);
-    }
 
     return (
         <div>
             {operators.map((operator) => (
-                <button key={operator} id={`operator-${operator}`} onClick={() => onClickOperator(operator)}>
+                <button
+                    key={operator}
+                    id={`operator-${operator}`}
+                    onClick={() => handleOperatorClick(operator)}
+                >
                     {operator}
                 </button>
             ))}
         </div>
     );
-}
+};
 
 export default OperatorButton;

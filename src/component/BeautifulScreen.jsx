@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-const BeautifulScreen = () => {
+const BeautifulScreen = ({ expression, result }) => {
     return (
         <div>
             <div id="screen">
-                <p>0</p>
+                <p>{expression}</p>
+                <p>{result}</p>
             </div>
         </div>
     );
-}
+};
+
 export default BeautifulScreen;
