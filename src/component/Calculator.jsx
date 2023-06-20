@@ -18,8 +18,7 @@ const Calculator = () => {
 
     const handleEqualClick = () => {
         try {
-            const parsedExpression = parseInt(expression, 10); // Conversion en base 10
-            const result = eval(parsedExpression);
+            const result = Function(`'use strict'; return (${expression})`)();
             setResult(result);
         } catch (error) {
             setResult("Erreur de calcul");

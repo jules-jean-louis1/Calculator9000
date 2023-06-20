@@ -10,7 +10,7 @@ const OperatorButton = ({ handleOperatorClick }) => {
                     key={operator}
                     id={`operator-${operator}`}
                     onClick={() => handleOperatorClick(operator)}
-                    className="rounded-full bg-orange-500 hover:bg-orange-600 font-bold py-2 px-4 border border-orange-600  m-1"
+                    className="rounded-lg text-white bg-orange-500 hover:bg-orange-600 font-bold py-2 px-4 border border-orange-600  m-1"
                 >
                     {operator}
                 </button>
