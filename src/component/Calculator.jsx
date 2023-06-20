@@ -28,9 +28,13 @@ const Calculator = () => {
     return (
         <div>
             <BeautifulScreen expression={expression} result={result} />
+            <div className="flex justify-center">
             <NumberButton handleNumberClick={handleNumberClick} />
-            <OperatorButton handleOperatorClick={handleOperatorClick} />
-            <EqualButton handleEqualClick={handleEqualClick} />
+                <div className="flex flex-col">
+                    <OperatorButton handleOperatorClick={handleOperatorClick} />
+                    <EqualButton handleEqualClick={handleEqualClick} />
+                </div>
+            </div>
         </div>
     );
 };

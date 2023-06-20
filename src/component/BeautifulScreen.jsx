@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const BeautifulScreen = ({ expression, result }) => {
     return (
-        <div>
-            <div id="screen">
+        <div className="flex justify-center">
+            <div id="screen" className="p-2 h-24 w-full bg-slate-200">
                 <p>{expression}</p>
-                <p>{result}</p>
+                <p className="text-xl font-bold">{result}</p>
             </div>
         </div>
     );
