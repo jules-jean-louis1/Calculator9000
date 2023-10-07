@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 const BeautifulScreen = ({ expression, result }) => {
     return (
         <div className="flex justify-center">
