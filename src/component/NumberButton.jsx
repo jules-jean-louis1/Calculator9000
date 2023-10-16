@@ -1,10 +1,25 @@
-export function NumberButton() {
-    const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+export function NumberButton({ NumberClick }) {
+    const numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+    const buttonRows = [numbers.slice(0, 3), numbers.slice(3, 6), numbers.slice(6,9), numbers.slice(9,10)];
+
     return (
-        <div className="flex flex-wrap">
-            {numbers.map((number, index) =>
-                <button key={index} className="rounded-lg h-12 w-12 bg-slate-300">{number}</button>
-            )}
+        <div className="flex flex-col items-center">
+            {buttonRows.map((row, rowIndex) => (
+                <div key={rowIndex} className="flex justify-center w-full">
+                    {row.map((number, index) => (
+                        <button
+                            key={index}
+                            className={`rounded-[10px] h-12 w-12 m-2 text-2xl ${
+                                number === 0? "w-full bg-slate-300" : "bg-slate-300"
+                            }`}
+                            value={number}
+                            onClick={(e) => NumberClick(e.target.value)}
+                        >
+                            {number}
+                        </button>
+                    ))}
+                </div>
+            ))}
         </div>
     );
 }

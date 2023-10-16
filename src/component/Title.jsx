@@ -2,7 +2,7 @@
 export function Title({name}) {
     return(
         <>
-            <h1>{name}</h1>
+            <h1 className={`text-center font-semibold text-3xl`}>{name}</h1>
         </>
     )
 }
