@@ -1,18 +1,17 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import Calculator from "./component/Calculator.jsx";
 import './App.css'
+
+import {Calculator9000} from "./component/Calculator9000.jsx";
 
 
 function App() {
     return (
-    <div className="calculator-container">
-        <div className="calculator-title">
-            <h1>Calculator9000</h1>
-            <div className="w-1/4">
-                <Calculator />
+        <>
+            <div className="calculator-container">
+                <Calculator9000/>
             </div>
-        </div>
-    </div>
+        </>
     );
 }
 

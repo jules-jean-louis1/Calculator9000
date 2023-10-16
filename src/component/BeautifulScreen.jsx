@@ -1,14 +1,6 @@
-
-// eslint-disable-next-line react/prop-types
-const BeautifulScreen = ({ expression, result }) => {
-    return (
-        <div className="flex justify-center">
-            <div id="screen" className="p-2 h-24 w-full bg-slate-200">
-                <p>{expression}</p>
-                <p className="text-xl font-bold">{result}</p>
-            </div>
+export function BeautifulScreen() {
+    return(
+        <div className="rounded-lg h-12 bg-slate-300">
         </div>
-    );
-};
-
-export default BeautifulScreen;
+    )
+}
