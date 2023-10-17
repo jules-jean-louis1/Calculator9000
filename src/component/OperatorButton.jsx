@@ -1,17 +1,23 @@
-export function OperatorButton({ OperatorClick }) {
+export function OperatorButton({ OperatorClick, handleEqual }) {
     const operator = ["+", "-", "*", "/"];
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-between h-full w-full">
             {operator.map((operator, index) => (
                 <button
                     key={index}
-                    className="rounded-[10px] h-12 w-12 bg-orange-500 m-2 text-2xl"
+                    className="rounded-[10px] h-12 w-full bg-orange-500 text-2xl"
                     value={operator}
                     onClick={(e) => OperatorClick(e.target.value)}
                 >
                     {operator}
                 </button>
             ))}
+            <button
+                className="rounded-lg h-12 w-full bg-orange-500 text-2xl font-semibold "
+                onClick={() => {handleEqual()}}
+            >
+                =
+            </button>
         </div>
     );
 }

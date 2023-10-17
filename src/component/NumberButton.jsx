@@ -3,14 +3,14 @@ export function NumberButton({ NumberClick }) {
     const buttonRows = [numbers.slice(0, 3), numbers.slice(3, 6), numbers.slice(6,9), numbers.slice(9,11)];
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col justify-around items-stretch space-y-4 h-full">
             {buttonRows.map((row, rowIndex) => (
-                <div key={rowIndex} className="flex justify-center w-full">
+                <div key={rowIndex} className="flex justify-between h-full w-full">
                     {row.map((number, index) => (
                         <button
                             key={index}
-                            className={`rounded-[10px] h-12 w-12 m-2 text-2xl ${
-                                number === 0 || number === '.'? "w-1/2 bg-slate-300" : "bg-slate-300"
+                            className={`rounded-[10px] h-12 text-2xl ${
+                                number === 0 || number === '.'? "w-[48%] bg-slate-300" : "w-[29%] bg-slate-300"
                             }`}
                             value={number}
                             onClick={(e) => NumberClick(e.target.value)}

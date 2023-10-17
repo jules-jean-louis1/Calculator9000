@@ -7,6 +7,7 @@ import {OperatorButton} from "./OperatorButton.jsx";
 import {EqualButton} from "./EqualButton.jsx";
 import {ResetOperation} from "./ResetOperation.jsx";
 import {ItSOverNineThousand} from "./ItSOverNineThousand.jsx";
+import { DeleteNumber } from "./DeleteNumber.jsx";
 
 
 
@@ -40,26 +41,29 @@ export function Calculator9000()
             }
         }
     };
-
     const handleReset = () => {
         setExpression([]);
         setResult(0);
     };
-
+    const DeleteClick = () => {
+        setExpression(expression.slice(0, -1));
+    };
     return(
         <div className="w-screen h-screen flex justify-center items-center">
-            <div className="w-1/5">
+            <div className="w-1/4 rounded-[10px] border p-2">
                 <Title name="Calculator 9000"/>
                 <BeautifulScreen expression={expression} result={result}/>
                 <ItSOverNineThousand result={result}/>
                 <div className="flex justify-between">
-                    <div className="flex flex-col">
-                        <ResetOperation resetClick={handleReset}/>
+                    <div className="flex flex-col w-full h-full">
+                        <div className="flex items-center">
+                            <ResetOperation resetClick={handleReset}/>
+                            <DeleteNumber DeleteClick={DeleteClick}/>
+                        </div>
                         <NumberButton NumberClick={handleNumberClick}/>
                     </div>
-                    <div className="flex flex-col">
-                        <OperatorButton OperatorClick={handleNumberClick}/>
-                        <EqualButton handleEqual={handleOperatorClick}/>
+                    <div className="flex w-1/3">
+                        <OperatorButton OperatorClick={handleNumberClick} handleEqual={handleOperatorClick}/>
                     </div>
                 </div>
             </div>
