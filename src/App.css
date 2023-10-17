@@ -30,6 +30,10 @@
   background-color: #F7768E;
   border-radius: 6px;
 }
+#saveBtn {
+  background-color: #9ECE6A;
+  border-radius: 6px;
+}
 
 #beautyScreen {
   background-color: #353b56;

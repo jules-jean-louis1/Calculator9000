@@ -1,5 +1,12 @@
-export function BeautifulScreen({ expression, result }) {
+/**
+ * A component that displays the expression and result of a calculator operation in a beautiful screen.
+ * @param {Object} props - The props object containing the expression and result to be displayed.
+ * @param {string} props.expression - The expression to be displayed.
+ * @param {string} props.result - The result to be displayed.
+ * @returns {JSX.Element} - The JSX code for the BeautifulScreen component.
+ */
 
+export function BeautifulScreen({ expression, result }) {
     return (
         <div className="min-h-20 h-32 p-2" id="beautyScreen">
             <div className={`flex flex-col justify-end w-full`}>

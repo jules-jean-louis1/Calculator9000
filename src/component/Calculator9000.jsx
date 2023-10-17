@@ -4,10 +4,8 @@ import {Title} from "./Title.jsx";
 import {BeautifulScreen} from "./BeautifulScreen.jsx";
 import {NumberButton} from "./NumberButton.jsx";
 import {OperatorButton} from "./OperatorButton.jsx";
-import {EqualButton} from "./EqualButton.jsx";
 import {ResetOperation} from "./ResetOperation.jsx";
 import {ItSOverNineThousand} from "./ItSOverNineThousand.jsx";
-import { DeleteNumber } from "./DeleteNumber.jsx";
 
 
 
@@ -25,7 +23,6 @@ export function Calculator9000()
         }
         setExpression([...expression, number]);
     };
-
     const handleOperatorClick = () => {
         if (expression.length === 0) {
             console.log("empty expression");
@@ -48,6 +45,9 @@ export function Calculator9000()
     const DeleteClick = () => {
         setExpression(expression.slice(0, -1));
     };
+    const Save = () => {
+        console.log("save operation");
+    };
     return(
         <div className="w-screen h-screen flex justify-center items-center">
             <div className="w-1/4 rounded-[10px] border border-[#11131c] p-2">
@@ -56,7 +56,7 @@ export function Calculator9000()
                 <div className="flex justify-between space-x-3 pt-2">
                     <div className="flex flex-col w-full h-full">
                         <div className="flex items-center">
-                            <ResetOperation resetClick={handleReset} DeleteClick={DeleteClick}/>
+                            <ResetOperation resetClick={handleReset} DeleteClick={DeleteClick} saveOperation={Save}/>
                         </div>
                         <NumberButton NumberClick={handleNumberClick}/>
                     </div>
