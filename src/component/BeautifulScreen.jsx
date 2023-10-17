@@ -1,10 +1,11 @@
-export function BeautifulScreen({expression, result}) {
-    return(
-        <div className="rounded-lg h-20 bg-slate-300 p-2">
-            <div className="flex flex-col">
-                <p className="text-right text-2xl text-zinc-400" id="calculation">{expression}</p>
-                <p className="text-right text-2xl" id="result">{result}</p>
+export function BeautifulScreen({ expression, result }) {
+
+    return (
+        <div className="rounded-[10px] min-h-20 h-24 bg-slate-200 p-2">
+            <div className={`flex flex-col justify-end w-full`}>
+                <h1 className="text-right text-4xl font-semibold text-black">{expression}</h1>
+                <h1 className="text-right text-5xl font-semibold text-black">{result}</h1>
             </div>
         </div>
-    )
+    );
 }

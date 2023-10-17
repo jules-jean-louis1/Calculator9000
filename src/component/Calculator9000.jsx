@@ -12,29 +12,40 @@ import {ItSOverNineThousand} from "./ItSOverNineThousand.jsx";
 
 export function Calculator9000()
 {
-    const [expression, setExpression] = useState("")
-    const [result, setResult] = useState(0)
+    const [expression, setExpression] = useState([]);
+    const [result, setResult] = useState(0);
 
     const handleNumberClick = (number) => {
-        setExpression(expression + number)
-    }
-    console.log(expression)
-    const handleOperatorClick = (operator) => {
-        if (expression.length === 0) {
-            console.log("empty expression")
-        } else if (expression[0] === "+" || expression[0] === "-" || expression[0] === "*" || expression[0] === "/") {
-            console.log("expression has only operator")
-        } else {
-            setExpression(expression + operator)
-            const result2 = Function(`'use strict'; return (${expression})`)();
-            setResult(result2)
-            setExpression("")
+        if (number === "." && expression.includes(".")) {
+            return;
         }
-    }
+        if (expression.length > 0 && expression[expression.length - 1] === "." && number === ".") {
+            return;
+        }
+        setExpression([...expression, number]);
+    };
+
+    const handleOperatorClick = () => {
+        if (expression.length === 0) {
+            console.log("empty expression");
+        } else if (expression[0] === "+" || expression[0] === "-" || expression[0] === "*" || expression[0] === "/") {
+            console.log("expression has only operator");
+        } else {
+            const expressionString = expression.join("");
+            try {
+                const result = eval(expressionString);
+                setResult(result);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    };
+
     const handleReset = () => {
-        setExpression("")
-        setResult(0)
-    }
+        setExpression([]);
+        setResult(0);
+    };
+
     return(
         <div className="w-screen h-screen flex justify-center items-center">
             <div className="w-1/5">
