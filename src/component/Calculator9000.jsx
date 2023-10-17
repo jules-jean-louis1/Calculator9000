@@ -45,8 +45,23 @@ export function Calculator9000()
     const DeleteClick = () => {
         setExpression(expression.slice(0, -1));
     };
-    const Save = () => {
-        console.log("save operation");
+    const Save = async () => {
+        const formData = new FormData();
+        formData.append("expression", expression);
+        formData.append("result", result);
+        try {
+            let saveOperation = await fetch('http://localhost/PHP/treatment.php',{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formData,
+            });
+            let response = await saveOperation.json();
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     };
     return(
         <div className="w-screen h-screen flex justify-center items-center">
