@@ -1,5 +1,37 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+* {
+  font-family: 'Lato', sans-serif;
+}
 #background {
   background: rgb(236, 194, 255);
   color: rgb(239, 61,255);
+}
+
+#root {
+  background-color: #24283B;
+}
+#operatorBtn {
+  background-color: #7AA2F7;
+  border-radius: 6px;
+}
+#equalBtn {
+  background-color: #7DCFFF;
+  border-radius: 6px;
+}
+#resetBtn {
+  background-color: #E0AF68;
+  border-radius: 6px;
+}
+#numberBtn {
+  background-color: #BB9AF7;
+  border-radius: 6px;
+}
+#deleteBtn {
+  background-color: #F7768E;
+  border-radius: 6px;
+}
+
+#beautyScreen {
+  background-color: #353b56;
+  border-radius: 6px;
 }

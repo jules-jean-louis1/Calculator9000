@@ -4,6 +4,7 @@ export function OperatorButton({ OperatorClick, handleEqual }) {
         <div className="flex flex-col justify-between h-full w-full">
             {operator.map((operator, index) => (
                 <button
+                    id="operatorBtn"
                     key={index}
                     className="rounded-[10px] h-12 w-full bg-orange-500 text-2xl"
                     value={operator}
@@ -13,7 +14,8 @@ export function OperatorButton({ OperatorClick, handleEqual }) {
                 </button>
             ))}
             <button
-                className="rounded-lg h-12 w-full bg-orange-500 text-2xl font-semibold "
+                id="equalBtn"
+                className="rounded-lg h-12 w-full text-2xl font-semibold "
                 onClick={() => {handleEqual()}}
             >
                 =

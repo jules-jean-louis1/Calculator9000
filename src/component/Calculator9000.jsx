@@ -50,15 +50,13 @@ export function Calculator9000()
     };
     return(
         <div className="w-screen h-screen flex justify-center items-center">
-            <div className="w-1/4 rounded-[10px] border p-2">
-                <Title name="Calculator 9000"/>
+            <div className="w-1/4 rounded-[10px] border border-[#11131c] p-2">
                 <BeautifulScreen expression={expression} result={result}/>
                 <ItSOverNineThousand result={result}/>
-                <div className="flex justify-between">
+                <div className="flex justify-between space-x-3 pt-2">
                     <div className="flex flex-col w-full h-full">
                         <div className="flex items-center">
-                            <ResetOperation resetClick={handleReset}/>
-                            <DeleteNumber DeleteClick={DeleteClick}/>
+                            <ResetOperation resetClick={handleReset} DeleteClick={DeleteClick}/>
                         </div>
                         <NumberButton NumberClick={handleNumberClick}/>
                     </div>
