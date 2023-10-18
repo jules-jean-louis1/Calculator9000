@@ -50,6 +50,8 @@ export function Calculator9000()
         }
     };
     const handleReset = () => {
+        setErrorF(false);
+        setMessageError("");
         setExpression([]);
         setResult(0);
     };
