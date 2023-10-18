@@ -1,4 +1,5 @@
 export function ResetOperation({resetClick, DeleteClick, saveOperation}) {
+    
     return(
         <div className={`flex w-full space-x-4 pb-2`}>
             <button

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 
 import {Title} from "./Title.jsx";
 import {BeautifulScreen} from "./BeautifulScreen.jsx";
@@ -6,6 +6,7 @@ import {NumberButton} from "./NumberButton.jsx";
 import {OperatorButton} from "./OperatorButton.jsx";
 import {ResetOperation} from "./ResetOperation.jsx";
 import {ItSOverNineThousand} from "./ItSOverNineThousand.jsx";
+import {History} from "./History.jsx";
 
 
 
@@ -13,6 +14,7 @@ export function Calculator9000()
 {
     const [expression, setExpression] = useState([]);
     const [result, setResult] = useState(0);
+    const [history, setHistory] = useState([]);
 
     const handleNumberClick = (number) => {
         if (number === "." && expression.includes(".")) {
@@ -32,7 +34,9 @@ export function Calculator9000()
             const expressionString = expression.join("");
             try {
                 const result = eval(expressionString);
-                setResult(result);
+                setResult(result);    
+                const newEntry = { expression: expressionString, result: result };
+                setHistory(history.concat(newEntry));
             } catch (error) {
                 console.log(error);
             }
@@ -46,22 +50,25 @@ export function Calculator9000()
         setExpression(expression.slice(0, -1));
     };
     const Save = async () => {
-        const formData = new FormData();
-        formData.append("expression", expression);
-        formData.append("result", result);
+        const bodyInsert = JSON.stringify({ expression: expression.join(""), result: result })
+        console.log(bodyInsert);
         try {
-            let saveOperation = await fetch('http://localhost/PHP/treatment.php',{
+            let saveOperation = await fetch('../../PHP/treatment.php',{
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: formData,
+                headers: { 'Content-Type': 'application/json', },
+                body: bodyInsert,
             });
             let response = await saveOperation.json();
             console.log(response);
+            if (response.status === 200) {
+                console.log("saved");
+            }
         } catch (error) {
             console.log(error);
         }
+    };
+    const clearHistory = () => {
+        setHistory([]);
     };
     return(
         <div className="w-screen h-screen flex justify-center items-center">
@@ -78,6 +85,9 @@ export function Calculator9000()
                     <div className="flex w-1/3">
                         <OperatorButton OperatorClick={handleNumberClick} handleEqual={handleOperatorClick}/>
                     </div>
+                </div>
+                <div id="WarpperModal">
+                    <History history={history} clearHistory={clearHistory}/>
                 </div>
             </div>
         </div>
