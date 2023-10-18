@@ -17,16 +17,10 @@ git clone https://github.com/jules-jean-louis1/Calculator9000
 ```
 2.Install the dependencies with one of the package managers listed below:
 ```bash
-pnpm install
-bun install
-npm install
 yarn install
 ```
 3.Start the development mode:
 ```bash
-pnpm dev
-bun dev
-npm run dev
 yarn dev
 ```
 

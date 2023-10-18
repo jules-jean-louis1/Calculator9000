@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-import {Title} from "./Title.jsx";
+/* Components */
 import {BeautifulScreen} from "./BeautifulScreen.jsx";
 import {NumberButton} from "./NumberButton.jsx";
 import {OperatorButton} from "./OperatorButton.jsx";
@@ -82,7 +82,6 @@ export function Calculator9000()
     const HandleError = (errorF) => {
         setErrorF(errorF);
     };
-    console.log(errorF);
     const HandeleMessageError = (messageError) => {
         setMessageError(messageError);
     }
