@@ -15,6 +15,8 @@ export function Calculator9000()
     const [expression, setExpression] = useState([]);
     const [result, setResult] = useState(0);
     const [history, setHistory] = useState([]);
+    const [errorF, setErrorF] = useState(false);
+    const [messageError, setMessageError] = useState("");
 
     const handleNumberClick = (number) => {
         if (number === "." && expression.includes(".")) {
@@ -28,9 +30,14 @@ export function Calculator9000()
     const handleOperatorClick = () => {
         if (expression.length === 0) {
             console.log("empty expression");
+            HandleError(true);
+            HandeleMessageError("empty expression");
         } else if (expression[0] === "+" || expression[0] === "-" || expression[0] === "*" || expression[0] === "/") {
-            console.log("expression has only operator");
+            HandleError(true);
+            HandeleMessageError("expression has only operator");
         } else {
+            HandleError(false);
+            HandeleMessageError("");
             const expressionString = expression.join("");
             try {
                 const result = eval(expressionString);
@@ -70,10 +77,17 @@ export function Calculator9000()
     const clearHistory = () => {
         setHistory([]);
     };
+    const HandleError = (errorF) => {
+        setErrorF(errorF);
+    };
+    console.log(errorF);
+    const HandeleMessageError = (messageError) => {
+        setMessageError(messageError);
+    }
     return(
         <div className="w-screen h-screen flex justify-center items-center">
             <div className="w-1/4 rounded-[10px] border border-[#11131c] p-2">
-                <BeautifulScreen expression={expression} result={result}/>
+                <BeautifulScreen expression={expression} result={result} errorF={errorF} messageError={messageError}/>
                 <ItSOverNineThousand result={result}/>
                 <div className="flex justify-between space-x-3 pt-2">
                     <div className="flex flex-col w-full h-full">
