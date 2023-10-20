@@ -77,7 +77,7 @@ export function Calculator9000()
         const bodyInsert = JSON.stringify({ expression: expression.join(""), result: result })
         console.log(bodyInsert);
         try {
-            let saveOperation = await fetch('../../PHP/treatment.php',{
+            let saveOperation = await fetch('http://localhost:8080/calculator9000/PHP/treatment.php',{
                 method: "POST",
                 headers: { 'Content-Type': 'application/json', },
                 body: bodyInsert,
