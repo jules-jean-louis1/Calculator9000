@@ -26,7 +26,10 @@ export function Calculator9000()
             return;
         }
         setExpression([...expression, number]);
+        HandleError(false);
+        HandeleMessageError("");
     };
+
     const handleOperatorClick = () => {
         if (expression.length === 0) {
             console.log("empty expression");
@@ -35,7 +38,19 @@ export function Calculator9000()
         } else if (expression[0] === "+" || expression[0] === "-" || expression[0] === "*" || expression[0] === "/") {
             HandleError(true);
             HandeleMessageError("expression has only operator");
+        } else if (expression[0] === "." || expression[expression.length - 1] === ".") {
+            HandleError(true);
+            HandeleMessageError("expression has only operator");
         } else {
+            for (let i = 0; i < expression.length; i++) {
+                if (expression[i] === "+" || expression[i] === "-" || expression[i] === "*" || expression[i] === "/") {
+                    if (expression[i + 1] === "+" || expression[i + 1] === "-" || expression[i + 1] === "*" || expression[i + 1] === "/") {
+                        HandleError(true);
+                        HandeleMessageError("expression has only operator");
+                        return;
+                    }
+                }
+            }
             HandleError(false);
             HandeleMessageError("");
             const expressionString = expression.join("");
@@ -87,7 +102,7 @@ export function Calculator9000()
     }
     return(
         <div className="w-screen h-screen flex justify-center items-center">
-            <div className="w-1/4 rounded-[10px] border border-[#11131c] p-2">
+            <div className="w-[90%] sm:w-1/2 lg:w-1/4 rounded-[10px] border border-[#11131c] p-2">
                 <BeautifulScreen expression={expression} result={result} errorF={errorF} messageError={messageError}/>
                 <ItSOverNineThousand result={result}/>
                 <div className="flex justify-between space-x-3 pt-2">

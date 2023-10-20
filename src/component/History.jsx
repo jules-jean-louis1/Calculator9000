@@ -7,7 +7,7 @@ export function History({ history, clearHistory }) {
     }
     return (
         <div className="pt-2">
-            <button className="text-2xl font-semibold h-12 w-full rounded-[10px] border border-[#afb9e1] text-white" id="historyBtn" onClick={() => buttonOpen()}>Historique de calcul</button>
+            <button className="text-2xl font-semibold h-12 w-full rounded-[10px] border border-[#afb9e1] text-white" id="historyBtn" onClick={() => buttonOpen()}>Historique de calculs</button>
             <dialog className="h-1/3 w-1/4 rounded-[10px] border border-[#afb9e1] p-2" id="modalHistory">
                 <div className="flex items-center justify-between">
                     <button className="text-2xl font-semibold" id="clearBtn" onClick={() => clearHistory()}>Clear</button>

@@ -13,7 +13,7 @@ export function BeautifulScreen({ expression, result, errorF, messageError }) {
                 <h1 className="text-right text-3xl font-semibold text-[#9fa8cc]">{expression}</h1>
                 <h1 className="text-right text-5xl font-semibold text-[#afb9e1]">{result}</h1>
             </div>
-            {errorF && <h1 className="text-right text-2xl font-semibold text-red-400">{messageError}</h1> }
+            {errorF && <h1 className="text-right text-xl font-semibold text-red-400">{messageError}</h1> }
         </div>
     );
 }
